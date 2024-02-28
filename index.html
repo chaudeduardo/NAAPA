@@ -13,7 +13,7 @@
         <h1><b>Itinerância</b></h1>
 
         <div class="container">
-            <input type="text" class="inputdropdown" id="menu" name="dres" placeholder="Selecione sua DRE" onfocus="dropdown(0)" onblur="dropdown(1)" required>
+            <select class="inputdropdown" id="menu" name="dres" required onchange="category(this.value)">
             <div class="dropdown">
                 <div class="listdropdown">
                     <!-- Opções da lista suspensa para DREs -->
