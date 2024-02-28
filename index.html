@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de itinerâncias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="box">
+    <form action="https://api.sheetmonkey.io/form/m95gX5Fkvef7L6ZHtjADFB" id="formsregistro" method="POST" autocomplete="off" onsubmit="return validarFormulario();">
+        <h1><b>Itinerância</b></h1>
+
+        <div class="container">
+            <input type="text" class="inputdropdown" id="menu" name="dres" placeholder="Selecione sua DRE" onfocus="dropdown(0)" onblur="dropdown(1)" required>
+            <div class="dropdown">
+                <div class="listdropdown">
+                    <!-- Opções da lista suspensa para DREs -->
+                    <div class="item" id="item-1" onmousedown="category(1)">Butantã</div>
+                    <div class="item" id="item-2" onmousedown="category(2)">Campo Limpo</div>
+                    <!-- Adicione mais opções conforme necessário -->
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- Adicione a lista suspensa para Unidade Educacional -->
+        <div class="container">
+            <select class="inputdropdown" id="unidadeEducacionalDropdown" name="unidadeEducacional" required disabled>
+                <option value="" selected>Selecione a Unidade Educacional</option>
+                <!-- Opções serão preenchidas dinamicamente com JavaScript -->
+            </select>
+        </div>
+
+        <div class="inputboxrf">
+            <input type="text" class="inputrf" name="registrofuncional" id="iregistrofuncional" required>
+            <label for="registrofuncional" class="labelrf">Registro Funcional</label>
+        </div>
+
+        <!-- Adicione o atributo onclick ao botão Registrar Itinerância -->
+        <p><input type="button" class="inputbuttonlocal" value="Obter localização" onclick="obterLocalizacao()"></p>
+        <!-- Campo para exibir a localização (com o atributo readonly) -->
+        <p><input type="text" class="inputlocal" name="local" id="ilocal" readonly></p>
+        <!-- Botão de envio -->
+        <p><input type="submit" class="inputsubimit" id="isubimit" value="Enviar registro" disabled></p>
+
+        <div class="inputboxcheckinout">
+            <input type="checkbox" class="checkin" name="entrada" id="ientrada">
+            <label for="ientrada" class="labelentrada">Entrada</label>
+            <input type="checkbox" class="checkout" name="saida" id="isaida">
+            <label for="isaida" class="labelsaida">Saída</label>
+        </div>
+
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
