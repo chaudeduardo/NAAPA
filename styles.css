@@ -1,0 +1,232 @@
+body {
+    background-image: linear-gradient(to right, #6A040F, #E85D04);
+    display: grid;
+    place-content: center;
+    font-family: Roboto, sans-serif;
+}
+
+.box {
+    position: absolute;
+    border: #800E13;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 15px;
+    width: 50%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    text-shadow: #38040E;
+}
+
+.inputrf {
+    background: none;
+    border: none;
+    border-bottom:1px solid #FFF;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.labelrf {
+    position:relative;
+    top: -20px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.inputrf:focus ~ .labelrf,
+.inputrf:valid ~ .labelrf {
+    top: -40px;
+    font-size: 12px;
+    color: #370617;
+}
+
+.inputlocal {
+    background: none;
+    border: none;
+    border-bottom:1px solid #FFF;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.inputbuttonlocal {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.inputbuttonlocal:hover {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.inputsubimit {
+    height: 40px;
+    width: 100%;
+    background-color: #9D0208;
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.inputsubimit:hover {
+    height: 40px;
+    width: 100%;
+    background-color: #6A040F;
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.inputboxcheckinout {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.checkin, .checkout {
+    appearance: none;
+    border: 2px solid #D00000;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkin:before, .checkout:before {
+    content: '';
+    appearance: none;
+    background: #9D0208;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: none;
+    position: absolute;
+    opacity: 0;
+    transform: all 900ms ease-in-out;
+}
+
+.checkin:checked:before, .checkout:checked:before {
+    opacity: 1;
+}
+
+.checkin:focus, .checkout:focus {
+    box-shadow: 0 0 5px #370617;
+}
+
+.labelentrada, .labelsaida {
+    color: white;
+    margin-right: 20px;
+}
+
+.inputdropdown {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.dropdown {
+    width: 100%;
+    background-color: #370617;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+    height: 90px;
+    overflow: auto;
+    display: none;
+    padding: 5px;
+    color: white;
+    transition: .3s;
+    transform: translate(0px,-10px);
+}
+
+.item {
+    height: 30px;
+    padding: 0px 5px;
+    box-sizing: border-box;
+    transition: .6s;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.item:hover {
+    background-color: rgba(0,0,0,0.2);
+    padding-left: 7px;
+    transition: .3s;
+    letter-spacing: 2px;
+}
+
+.inputdropdown, #unidadeEducacionalDropdown {
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0px 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
