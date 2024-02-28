@@ -16,8 +16,15 @@ var dreMappings = {
 };
 // Função para preencher a lista suspensa das UEs com base na DRE selecionada
 function preencherListaUEs(dreSelecionada) {
-    // Seleciona o elemento do HTML para a lista suspensa das UEs
-    var selectUE = document.getElementById('unidadeEducacionalDropdown');
+    google.script.run.withSuccessHandler(function(unidadesEducacionais) {
+        var selectUE = document.getElementById('unidadeEducacionalDropdown');
+        selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
+        unidadesEducacionais.forEach(function(ue) {
+            selectUE.innerHTML += '<option value="' + ue + '">' + ue + '</option>';
+        });
+        selectUE.removeAttribute('disabled');
+    }).getUnidadesEducacionais(dreSelecionada);
+}
     
     // Verifica se a DRE selecionada tem UEs associadas
     if (dreMappings[dreSelecionada]) {
