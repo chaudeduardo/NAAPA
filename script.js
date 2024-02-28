@@ -1,3 +1,10 @@
+function category(c) {
+    var item = document.getElementById('item-' + c).innerHTML;
+    document.getElementById('menu').value = item;
+    // Adicione chamada de função para preencher a lista suspensa de Unidade Educacional aqui
+    fillUnidadeEducacionalDropdown(item);
+}
+
 function fillUnidadeEducacionalDropdown(selectedDRE) {
     var unidadeEducacionalDropdown = document.getElementById('unidadeEducacionalDropdown');
     // Limpa as opções existentes
