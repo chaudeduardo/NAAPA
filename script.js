@@ -2,8 +2,9 @@
 function preencherListaUEs(dreSelecionada) {
     var selectUE = document.getElementById('unidadeEducacionalDropdown');
     selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
-
+    
     if (dreSelecionada) {
+        console.log('DRE encontrada:', dreSelecionada);
         google.script.run.withSuccessHandler(function(unidadesEducacionais) {
             unidadesEducacionais.forEach(function(ue) {
                 selectUE.innerHTML += '<option value="' + ue + '">' + ue + '</option>';
@@ -11,8 +12,7 @@ function preencherListaUEs(dreSelecionada) {
             selectUE.removeAttribute('disabled');
         }).getUnidadesEducacionais(dreSelecionada);
     } else {
-        // Se não houver DRE selecionada, mantenha a lista suspensa vazia
-        selectUE.removeAttribute('disabled');
+        console.log('DRE não encontrada');
     }
 }
 
