@@ -16,31 +16,30 @@ var dreMappings = {
 };
 // Função para preencher a lista suspensa das UEs com base na DRE selecionada
 function preencherListaUEs(dreSelecionada) {
-    google.script.run.withSuccessHandler(function(unidadesEducacionais) {
-        var selectUE = document.getElementById('unidadeEducacionalDropdown');
-        selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
+    var selectUE = document.getElementById('unidadeEducacionalDropdown');
+    selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
+    var unidadesEducacionais = dreMappings[dreSelecionada];
+    if (unidadesEducacionais) {
         unidadesEducacionais.forEach(function(ue) {
             selectUE.innerHTML += '<option value="' + ue + '">' + ue + '</option>';
         });
         selectUE.removeAttribute('disabled');
-    }).getUnidadesEducacionais(dreSelecionada);
-}
-    
-    // Verifica se a DRE selecionada tem UEs associadas
-    if (dreMappings[dreSelecionada]) {
-        // Limpa as opções existentes da lista suspensa das UEs
-        selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
-        
-        // Preenche as opções com base na DRE selecionada
-        dreMappings[dreSelecionada].forEach(ue => {
-            selectUE.innerHTML += '<option value="' + ue + '">' + ue + '</option>';
-        });
-
-        // Remove a propriedade "disabled" para habilitar a lista suspensa das UEs
-        selectUE.removeAttribute('disabled');
     } else {
-        // Caso a DRE selecionada não tenha UEs associadas, exibe uma mensagem ou realiza alguma outra ação
         console.log('Nenhuma UE encontrada para a DRE selecionada: ' + dreSelecionada);
+    }
+}
+
+// Função para obter geolocalização
+function obterLocalizacao() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var locationString = "Latitude: " + latitude + ", Longitude: " + longitude;
+            document.getElementById('ilocal').value = locationString;
+        });
+    } else {
+        alert("Geolocalização não suportada pelo navegador.");
     }
 }
 
@@ -50,5 +49,7 @@ document.getElementById('menu').addEventListener('change', function() {
     var dreSelecionada = this.value;
     
     // Chama a função para preencher a lista suspensa das UEs com base na DRE selecionada
+    preencherListaUEs(dreSelecionada);
+});Es com base na DRE selecionada
     preencherListaUEs(dreSelecionada);
 });
