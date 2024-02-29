@@ -2,15 +2,17 @@
 function preencherListaUEs(dreSelecionada) {
     var selectUE = document.getElementById('unidadeEducacionalDropdown');
     selectUE.innerHTML = '<option value="" selected>Selecione a Unidade Educacional</option>';
-    var dreAbreviada = dreSelecionada;
-    if (dreAbreviada) {
-        // Aqui você pode usar a abreviatura da DRE para buscar as UEs na sua planilha
-        // Exemplo:
-        // dreAbreviada = "BT"; // Supondo que a DRE selecionada seja Butantã
-        // Agora você pode usar "BT" para buscar as UEs correspondentes na planilha
-        // Após obter as UEs, você pode preencher a lista suspensa como estava fazendo antes
+
+    if (dreSelecionada) {
+        google.script.run.withSuccessHandler(function(unidadesEducacionais) {
+            unidadesEducacionais.forEach(function(ue) {
+                selectUE.innerHTML += '<option value="' + ue + '">' + ue + '</option>';
+            });
+            selectUE.removeAttribute('disabled');
+        }).getUnidadesEducacionais(dreSelecionada);
     } else {
-        console.log('Abreviatura da DRE não encontrada para: ' + dreSelecionada);
+        // Se não houver DRE selecionada, mantenha a lista suspensa vazia
+        selectUE.removeAttribute('disabled');
     }
 }
 
